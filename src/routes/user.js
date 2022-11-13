@@ -29,6 +29,13 @@ router.get('/users/:id', (req,res) => {
     .catch((error) => res.json({message: error}))
 });
 
+router.get('/users/login/:email&:password', (req, res) => {
+    const {email, password} = req.params;
+    userSchema.find({email: email, password: password})
+        .then((data) => res.json(data))
+        .catch((error) => res.json({message: error}));
+});
+
 //update a user
 router.put('/users/:id', (req,res) => {
     const {id} = req.params;
