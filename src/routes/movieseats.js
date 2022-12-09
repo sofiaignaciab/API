@@ -3,6 +3,14 @@ const SeatSchema = require("../models/movieseats");
 
 const router = express.Router();
 
+router.post('/addEvent', (req, res) => {
+    const event = SeatSchema(req.body);
+    console.log(event);
+    event.save()
+        .then((data)=>res.json(data))
+        .catch(error =>res.json({message: error}));
+})
+
 router.post('/updateEvent', (req, res) => {
     const {Title} = req.params;
     const filter = {'title': Title};
