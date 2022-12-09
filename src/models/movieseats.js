@@ -1,29 +1,29 @@
 const mongoose = require("mongoose");
 
 const MovieSchema = mongoose.Schema({
-    tittle:{
+    title: {
       type: String,
       required: true
     },
-    mainGenre:{
+    mainGenre: {
       type: String,
       required: true
     },
-    genres:{
+    genres: {
       type: String,
       required: true
     },
-    time:{
+    time: {
         type: String,
         required: true
     },
-    img:{
+    img: {
         type: String,
         required: true
     },
-    fxseats:{
+    fxseats: {
         type: Array,
         required: true
     }
 });
-module.exports = mongoose.model('Movieseats', movieSchema);
+module.exports = mongoose.model('Movieseats', MovieSchema);
