@@ -55,6 +55,12 @@ router.delete('/users/:id', (req,res) => {
     .catch((error) => res.json({message: error}))
 });
 
+router.get('/events', (req, res) => {
+    SeatSchema.find()
+        .then((data)=>res.json(data))
+        .catch((error)=>res.json({message:error}));
+})
+
 router.post('/events/add', (req, res) => {
     const event = SeatSchema(req.body);
     console.log(event);
@@ -63,7 +69,7 @@ router.post('/events/add', (req, res) => {
         .catch(error =>res.json({message: error}));
 })
 
-router.post('/events/update', (req, res) => {
+router.put('/events/update', (req, res) => {
     const {Title} = req.params;
     const filter = {'title': Title};
     const _functions = req.body.functions;
