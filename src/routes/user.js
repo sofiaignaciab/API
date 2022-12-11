@@ -82,4 +82,12 @@ router.put('/events/update', (req, res) => {
     })
 })
 
+router.get('/events/:title', (req, res) => {
+    const {Title} = req.params;
+    SeatSchema.find({title: Title})
+        .then((data)=>res.json(data))
+        .catch((error)=>res.json({message:error}));
+})
+
+
 module.exports = router
